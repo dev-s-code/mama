@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ma Ma yar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+            padding: 15px;
+            color: #d9534f;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 { color: #ff4d4d; }
+        .message-box {
+            line-height: 1.8;
+            font-size: 16px;
+            word-wrap: break-word;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> မျက်မှန်လေးနဲ့ Ma Ma ရာ🤌❤️</h2>
+        <h3>ပြုံးနေမှလှတာ မမရ 🙈🤌 အပြုံးမပျတ်လိုက်ပါနဲ့ 🙊</h3>
+        <div class="message-box" id="output"></div>
+        
+    </div>
+      
+    <script>
+        var container = document.getElementById('output');
+        var text = '';
+        for (var i = 1; i <= 10000; i++) {
+            text += i + '.စိတ်မကောက်ရဝူးလေ နော်လို့🙈🤪 <br>';
+        }
+        container.innerHTML = text;
+    </script>
+</body>
+</html>
