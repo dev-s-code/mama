@@ -1,14 +1,106 @@
-<!DOCTYPE html> <html lang="my"> 
-    <head> <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Ma Ma Yar</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family:
-    'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #ffe6ea 0%, #ffc0cb 100%);
-                                                                                                    min-height: 100vh; display:
-                                                                                                        flex; justify-content: center; 
-                                                                                                    align-items: center; padding: 15px;
-                                                                                                    overflow-x: hidden; position: relative;
-                                                                                                   } /* Floating Hearts Background */ 
-            .heart-bg { position: absolute; font-size: 20px; animation: float 4s ease-in-out infinite; opacity: 0.6; z-index: 1; }
-            @keyframes float { 0% { transform: translateY(0) scale(1); opacity: 0.8; } 50% { transform: translateY(-20px) scale(1.1); opacity: 1; } 100% { transform: translateY(-40px) scale(0.9); opacity: 0; } } /* Main Container */ .container { width: 100%; max-width: 450px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 25px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3); border: 2px solid #ffccd5; text-align: center; z-index: 10; position: relative; } h2 { color: #ff3366; font-size: 22px; margin-bottom: 8px; animation: pulse 2s infinite; } h3 { color: #ff6688; font-size: 15px; font-weight: 500; margin-bottom: 20px; } @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } } /* Message Box */ .message-card { background: #fff0f3; border-radius: 15px; padding: 15px; max-height: 50vh; overflow-y: auto; border: 1px solid #ffb3c1; box-shadow: inset 0 2px 5px rgba(0,0,0,0.03); text-align: left; scroll-behavior: smooth; } /* Custom Scrollbar */ .message-card::-webkit-scrollbar { width: 5px; } .message-card::-webkit-scrollbar-thumb { background: #ff85a2; border-radius: 10px; } .line { color: #d90429; font-size: 15px; line-height: 1.8; margin-bottom: 5px; animation: fadeIn 0.3s ease-in; } @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } } .cursor { display: inline-block; width: 8px; height: 15px; background-color: #ff3366; margin-left: 5px; animation: blink 0.8s infinite; } @keyframes blink { 50% { opacity: 0; } } </style> </head> <body> <div class="container"> <h2>မျက်မှန်လေးနဲ့ Ma Ma ရာ 🤌❤️</h2> <h3>ပြုံးနေမှလှတာ မမရ 🙈🤌 အပြုံးမပျက်လိုက်ပါနဲ့ 🙊</h3> <div class="message-card" id="scroll-box"> <div id="output"></div> <span class="cursor"></span> </div> </div> <script> const outputBox = document.getElementById('output'); const scrollBox = document.getElementById('scroll-box'); const totalCount = 1000; // ဖုန်းမလေးစေရန် အကြိမ် ၁,၀၀၀ ထားပေးထားပါသည် let currentCount = 1; function typeNextLine() { if (currentCount <= totalCount) { const line = document.createElement('div'); line.
-                className = 'line'; line.innerHTML = `${currentCount}.
-                စိတ်မကောက်ရဝူးလေ နော်လို့ 🙈🤪`; outputBox.appendChild(line); scrollBox.scrollTop = scrollBox.scrollHeight; // Auto Scroll အောက်ဆုံးသို့ ဆင်းပေးမည် currentCount++; setTimeout(typeNextLine, 25); // စာရိုက်နှုန်း မြန်/နှေး ချိန်ရန် (25 ms) } } // Floating Hearts Effect generator function createHeart() { const heart = document.createElement('div'); heart.className = 'heart-bg'; heart.innerHTML = ['❤️', '💖', '💕', '🌸', '✨'][Math.floor(Math.random() * 5)]; heart.style.left = Math.random() * 100 + 'vw'; heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 4000); } setInterval(createHeart, 400); // Typing Effect စတင်ရန် window.onload = typeNextLine; </script> </body> </html>
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Ma Yar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe6ea 0%, #ffc0cb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            border: 2px solid #ffccd5;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ff3366;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            color: #ff6688;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .message-card {
+            background: #fff0f3;
+            border-radius: 15px;
+            padding: 15px;
+            height: 40vh;
+            overflow-y: auto;
+            border: 1px solid #ffb3c1;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .line {
+            color: #d90429;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 3px;
+        }
+
+        .btn-forgive {
+            background: linear-gradient(45deg, #ff3366, #ff6688);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>မျက်မှန်လေးနဲ့ Ma Ma ရာ 🤌❤️</h2>
+        <h3>ပြုံးနေမှလှတာ မမရ 🙈🤌 အပြုံးမပျက်လိုက်ပါနဲ့ 🙊</h3>
+        
+        <div class="message-card" id="scroll-box">
+            <div id="output"></div>
+        </div>
+
+        <button class="btn-forgive" onclick="alert('အပြုံးလေးနဲ့ မမက ပိုလှတာမို့ စိတ်မကောက်ကြေးနော်! ❤️✨')">
+            စိတ်မကောက်တော့ဘူးမလား? 🙈🤌
+        </button>
+    </div>
+
+    <script>
+        var outputBox = document.getElementById('output');
+        var textContent = '';
+
+        for (var i = 1; i <= 1000; i++) {
+            textContent += '<div class="line">' + i + '. စိတ်မကောက်ရဝူးလေ နော်လို့ 🙈🤪</div>';
+        }
+
+        outputBox.innerHTML = textContent;
+    </script>
+</body>
+</html>
